@@ -1,0 +1,27 @@
+{
+  "name": "aoflowers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "clarifai": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelderFSFerreira/AOFlowers.git"
+  },
+  "keywords": [
+    "clarifai"
+  ],
+  "author": "Helder Ferreira & Nelson Rodrigues",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HelderFSFerreira/AOFlowers/issues"
+  },
+  "homepage": "https://github.com/HelderFSFerreira/AOFlowers#readme"
+}
