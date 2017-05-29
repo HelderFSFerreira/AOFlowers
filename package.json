@@ -6,20 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "express": "*",
-    "body-parser": "*",
-    "clarifai": "*"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HelderFSFerreira/AOFlowers.git"
   },
-  "keywords": [
-    "clarifai"
-  ],
-  "author": "Helder Ferreira & Nelson Rodrigues",
-  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3",
+    "formidable": "^1.0.17",
+    "@google-cloud/vision": "*"
+  },
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/HelderFSFerreira/AOFlowers/issues"
   },
