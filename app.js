@@ -59,7 +59,6 @@ app.post('/upload', function(req, res){
     .catch((err) => {
       console.error('ERROR:', err);
     });
-
     // Assync method
 
     function deCount() {
@@ -68,12 +67,10 @@ app.post('/upload', function(req, res){
          res.json(finalArray);
        }
     }
-    
   });
 
   // parse the incoming request containing the form data
   form.parse(req);
-
 });
 
 var server = app.listen(3000, function(){

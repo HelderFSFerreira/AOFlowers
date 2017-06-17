@@ -29,7 +29,8 @@ $('#upload-input').on('change', function(){
       processData: false,
       contentType: false,
       success: function(data){
-          console.log('upload successful!\n' + JSON.stringify(data));
+          console.log('upload successful!\n');
+          publishData(data);
       },
       xhr: function() {
         // create an XMLHttpRequest
@@ -62,3 +63,29 @@ $('#upload-input').on('change', function(){
 
   }
 });
+
+function publishData(data) {
+  console.log(JSON.stringify(data));
+  
+  var panel1 = $('<div/>').addClass("panel panel.default");
+  var panelB = $('<div/>').addClass("panel-body");
+  var table = $('<table/>').attr('id','table1');
+  var tableH = $('<thead/>');
+  var th = $('<tr/>').append($('<th/>').append("Nome"));
+  th.append($('<th/>').append("Percentagem"));
+  tableH.append(th);
+  table.append(tableH);
+
+  var tb = $('<tbody/>');
+  
+  data.forEach(function(element) {
+    var tr = $("<tr/>");
+    tr.append($("<td/>").append(element.name));
+    tr.append($("<td/>").append(Math.floor(element.percentage*100)));
+    tb.append(tr);
+  }, this);
+  table.append(tb);
+  
+  $('#cenas').append(panel1.append(panelB.append(table)));
+  $('#table1').DataTable({bFilter: false, bInfo: false,bPaginate: false});
+}
