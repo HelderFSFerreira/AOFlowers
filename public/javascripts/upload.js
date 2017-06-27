@@ -16,7 +16,6 @@ $('#upload-input').on('change', function(){
     // loop through all the selected files and add them to the formData object
     for (var i = 0; i < files.length; i++) {
       var file = files[i];
-      console.log(file);
 
       // add the files to formData object for the data payload
       formData.append('uploads[]', file, file.name);
@@ -66,7 +65,7 @@ $('#upload-input').on('change', function(){
 
 function publishData(data) {
   console.log(JSON.stringify(data));
-  
+
   var panel1 = $('<div/>').addClass("panel panel.default");
   var panelB = $('<div/>').addClass("panel-body");
   var table = $('<table/>').attr('id','table1');
@@ -77,15 +76,26 @@ function publishData(data) {
   table.append(tableH);
 
   var tb = $('<tbody/>');
-  
+
+  var nomes = ["red", "flower", "flora", "flowering plant", "plant", "garden roses", "rose family", "petal", "fruit", "collard greens", "leaf", "leaf vegetable", "vegetable", "green", "brown"];
+
   data.forEach(function(element) {
-    var tr = $("<tr/>");
-    tr.append($("<td/>").append(element.name));
-    tr.append($("<td/>").append(Math.floor(element.percentage*100)));
-    tb.append(tr);
+    var aux = 0;
+    nomes.forEach(function(nome){
+      if(nome == element.name){
+        aux = 1;
+      }
+    })
+    if(aux == 0){
+      var tr = $("<tr/>");
+      tr.append($("<td/>").append(element.name));
+      tr.append($("<td/>").append(Math.floor(element.percentage*100)));
+      tb.append(tr);
+    }
+
   }, this);
   table.append(tb);
-  
+
   $('#cenas').append(panel1.append(panelB.append(table)));
   $('#table1').DataTable({bFilter: false, bInfo: false,bPaginate: false});
 }

@@ -13,6 +13,7 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
+
 app.post('/upload', function(req, res){
 
   // create an incoming form object
@@ -28,7 +29,7 @@ app.post('/upload', function(req, res){
   // rename it to it's orignal name
   form.on('file', function(field, file) {
     fs.rename(file.path, path.join(form.uploadDir, file.name));
-    
+
     form.filePath = form.uploadDir+'\\'+file.name;
   });
 
@@ -44,10 +45,10 @@ app.post('/upload', function(req, res){
 
     vision.detectLabels(form.filePath)
     .then((results) => {
-        
+
         var usedArray = results[1].responses[0].labelAnnotations;
         numElements=usedArray.length;
-        
+
         usedArray.forEach(function(element) {
           var auxObj = {};
           auxObj.name = element.description;
